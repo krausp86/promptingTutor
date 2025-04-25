@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    container_name: promptingTutor
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=promptingTutor.settings
+      - DEBUG=0
+    volumes:
+      - .:/app
