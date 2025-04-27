@@ -1,3 +1,19 @@
-<h1>Level {{ request.user.progress.current_level }}</h1>
-<p>Willkommen zur aktuellen Aufgabe.</p>
+<h1>Aufgabe {{ task.task_id }}</h1>
+
+<p>{{ task.task_text }}</p>
+
+<form method="post">
+  {% csrf_token %}
+  
+  <textarea name="user_input" rows="6" cols="60" placeholder="Hier deinen Prompt eingeben..."></textarea><br><br>
+
+  <button type="submit" name="submit">Senden</button>
+</form>
+
+{% if feedback %}
+  <div style="margin-top: 20px; padding: 15px; border: 1px solid red; background-color: #ffe6e6; color: darkred;">
+    <strong>Hinweis:</strong><br>
+    {{ feedback }}
+  </div>
+{% endif %}
 

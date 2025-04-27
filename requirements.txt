@@ -1,2 +1,5 @@
 Django>=5.0
 gunicorn
+openai
+tiktoken
+pydantic
